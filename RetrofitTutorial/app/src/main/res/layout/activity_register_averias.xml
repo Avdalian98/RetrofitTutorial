@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="RegisterAverias"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"/>
 
 
     <EditText
@@ -22,7 +23,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Titulo" />
+        android:hint="Titulo"
+        android:layout_marginTop="200dp"/>
     <EditText
         android:id="@+id/descripcion_et"
         android:layout_width="match_parent"

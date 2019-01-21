@@ -5,22 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        />
 
     <EditText
         android:id="@+id/editTextMail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:layout_marginTop="200dp"
         android:hint="@string/email"
-         />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberPassword"
@@ -29,7 +37,7 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="doLogin"
         android:text="@string/sign_in" />
@@ -40,4 +48,6 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:onClick="Register"/>
+
+
 </LinearLayout>
