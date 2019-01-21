@@ -35,6 +35,8 @@ public class ListadoMarcas extends AppCompatActivity {
 
     }
 public  void prueba(){
+int a = 0;
+a = a +1;
 
 }
     public void MostrarAverias(View view) {
