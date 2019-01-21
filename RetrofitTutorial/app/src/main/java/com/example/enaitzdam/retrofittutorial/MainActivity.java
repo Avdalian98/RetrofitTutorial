@@ -1,6 +1,7 @@
 package com.example.enaitzdam.retrofittutorial;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static final String PUBLIC_KEY ="" ;
     EditText editTextMail, editTextPassword;
 
     @Override
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
             //3
             peticioLogin.enqueue(new Callback<ResponseLogin>() {
+
                 //Si la connexió no s'ha perdut i la comunicació ha estat correcte.
                 //Entra a l'onResponse encara que torni un codi de no haver trobat res.
 
@@ -62,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
                         //Si volem obtenir parametres de la crida a l'API:
                         String nomUser = response.body().getNombre();
+                        SharedPreferences.Editor editor = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE).edit();
+                        String a = response.body().getKey();
+                        editor.putString("KEY", a);
+                        editor.apply();
                         Toast.makeText(MainActivity.this, "Login OK "+nomUser, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainMenu.class);
                         startActivity(intent);

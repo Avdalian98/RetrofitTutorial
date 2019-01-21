@@ -1,5 +1,6 @@
 package com.example.enaitzdam.retrofittutorial;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
+
 public class ListadoMarcas extends AppCompatActivity {
+
 
     private MarcasAdapter Ma;
     private ListView Mylistview;
@@ -48,8 +52,9 @@ a = a +1;
                 .build();
 
         ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
-
-        Call<ResponseMarcas> peticioMarcas = apiService.getMarcas("kkwccowo4c8kosckckc4kwo0gwoosk4048k4ogg4");
+        SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
+        final String restoredText = prefs.getString("KEY", "Not Found");
+        Call<ResponseMarcas> peticioMarcas = apiService.getMarcas(restoredText);
         peticioMarcas.enqueue(new Callback<ResponseMarcas>() {
 
             @Override
