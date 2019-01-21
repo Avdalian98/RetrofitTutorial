@@ -24,8 +24,12 @@ public void prueba2(){
     }
 
     public void ClickAveries(View view) {
+        Intent intent = new Intent(getApplicationContext(), RegisterAverias.class);
+        startActivity(intent);
     }
 
     public void ClickListaAveries(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListadoAverias.class);
+        startActivity(intent);
     }
 }

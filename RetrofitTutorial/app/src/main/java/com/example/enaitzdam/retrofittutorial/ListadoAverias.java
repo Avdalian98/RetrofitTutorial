@@ -8,7 +8,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.enaitzdam.retrofittutorial.interfaces.ApiMecAroundInterfaces;
+import com.example.enaitzdam.retrofittutorial.responses.Averias;
 import com.example.enaitzdam.retrofittutorial.responses.Marcas;
+import com.example.enaitzdam.retrofittutorial.responses.ResponseAverias;
 import com.example.enaitzdam.retrofittutorial.responses.ResponseMarcas;
 
 import java.net.HttpURLConnection;
@@ -28,7 +30,7 @@ import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
     public class ListadoAverias extends AppCompatActivity {
 
 
-        private MarcasAdapter Ma;
+        private AveriaAdapter Aa;
         private ListView Mylistview;
 
         //PRUEBA GIT
@@ -51,22 +53,22 @@ import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
             ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
             SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
             final String restoredText = prefs.getString("KEY", "Not Found");
-            Call<ResponseMarcas> peticioAverias = apiService.getMarcas(restoredText);
-            peticioAverias.enqueue(new Callback<ResponseMarcas>() {
+            Call<ResponseAverias> peticioAverias = apiService.getAverias(restoredText);
+            peticioAverias.enqueue(new Callback<ResponseAverias>() {
 
                 @Override
-                public void onResponse(Call<ResponseMarcas> call, Response<ResponseMarcas> response) {
+                public void onResponse(Call<ResponseAverias> call, Response<ResponseAverias> response) {
                     if (response.code() == HttpURLConnection.HTTP_OK) {
 
-                        List<Marcas> llistatMarcas = response.body().getMarcas();
-                        Ma = new MarcasAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, llistatMarcas);
-                        Mylistview.setAdapter(Ma);
+                        List<Averias> llistatAverias = response.body().getAverias();
+                        Aa = new AveriaAdapter(ListadoAverias.this, android.R.layout.simple_spinner_item, llistatAverias);
+                        Mylistview.setAdapter(Aa);
                         Toast.makeText(getApplicationContext(), "Percecto", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseMarcas> call, Throwable t) {
+                public void onFailure(Call<ResponseAverias> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), "Problema amb la connexió.", Toast.LENGTH_SHORT).show();
                 }
             });

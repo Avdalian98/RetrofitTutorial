@@ -1,6 +1,7 @@
 package com.example.enaitzdam.retrofittutorial;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.enaitzdam.retrofittutorial.interfaces.ApiMecAroundInterfaces;
+import com.example.enaitzdam.retrofittutorial.responses.ResponseAverias;
 import com.example.enaitzdam.retrofittutorial.responses.ResponseRegister;
 
 import java.net.HttpURLConnection;
@@ -18,25 +20,29 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
+
 public class RegisterAverias extends AppCompatActivity {
-    EditText editTextMail,editTextPassword ,EditTextNombre;
+    EditText editTexttTIULO,editTextDESCRIPCION ,EditTextMARCA,EditTextModelo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 //X-API-KEY, titulo, descripcion, marca, modelo
 
-        editTextMail = findViewById(R.id.textView_email_register);
-        editTextPassword=findViewById(R.id.textView_password_register);
-        EditTextNombre= findViewById(R.id.textView_nombre_register);
+        editTexttTIULO = findViewById(R.id.titulo_et);
+        editTextDESCRIPCION=findViewById(R.id.descripcion_et);
+        EditTextMARCA= findViewById(R.id.marca_et);
+        EditTextModelo= findViewById(R.id.modelo_et);
     }
 
     public void Register_R(View view) {
-        String nombre = EditTextNombre.getText().toString();
-        String email = editTextMail.getText().toString();
-        String pass = editTextPassword.getText().toString();
+        String titulo = editTexttTIULO.getText().toString();
+        String descripcion = editTextDESCRIPCION.getText().toString();
+        String marca = EditTextMARCA.getText().toString();
+        String modelo = EditTextModelo.getText().toString();
 
-        if (!email.isEmpty() && !pass.isEmpty() && !nombre.isEmpty()) {
+        if (!titulo.isEmpty() && !descripcion.isEmpty() && !marca.isEmpty()&& !modelo.isEmpty()) {
 
 
             Retrofit retrofit = new Retrofit.Builder()
@@ -45,30 +51,31 @@ public class RegisterAverias extends AppCompatActivity {
                     .build();
 
             ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
-
-            Call<ResponseRegister> peticioRegister = apiService.doRegister(nombre,pass,email);
+            SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
+            final String restoredText = prefs.getString("KEY", "Not Found");
+            Call<ResponseAverias> peticioRegister = apiService.doRegisterAveria(restoredText,titulo,descripcion,marca,modelo);
 
 
             //3
-            peticioRegister.enqueue(new Callback<ResponseRegister>() {
+            peticioRegister.enqueue(new Callback<ResponseAverias>() {
                 //Si la connexió no s'ha perdut i la comunicació ha estat correcte.
                 //Entra a l'onResponse encara que torni un codi de no haver trobat res.
 
                 @Override
-                public void onResponse(Call<ResponseRegister> call, Response<ResponseRegister> response) {
+                public void onResponse(Call<ResponseAverias> call, Response<ResponseAverias> response) {
                     if (response.code()== HttpURLConnection.HTTP_OK){
 
                         //Si volem obtenir parametres de la crida a l'API:
                         // String nomUser = response.body().getNombre();
-                        String key = response.body().getKey();
-                        Toast.makeText(getApplicationContext(), "Register OK  "+key, Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(getApplicationContext(), "Register OK  ", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }
                 }
                 // Si peta la connexió a Internet.
                 @Override
-                public void onFailure(Call<ResponseRegister> call, Throwable t) {
+                public void onFailure(Call<ResponseAverias> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), "Problema amb la connexió.", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -82,6 +89,11 @@ public class RegisterAverias extends AppCompatActivity {
 
             Toast.makeText(this, "Login KO", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void RegistreAverias(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListadoAverias.class);
+        startActivity(intent);
     }
 }
 
