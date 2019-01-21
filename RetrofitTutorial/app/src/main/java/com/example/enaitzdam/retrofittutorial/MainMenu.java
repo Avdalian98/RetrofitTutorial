@@ -12,7 +12,9 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
     }
+public void prueba2(){
 
+    }
     public void ClickMarques(View view) {
         Intent intent = new Intent(getApplicationContext(), ListadoMarcas.class);
         startActivity(intent);
