@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="MostrarMarcas"
+        android:onClick="MostrarAverias"
         android:text="@string/MostrarAverias" />
 
     <ListView

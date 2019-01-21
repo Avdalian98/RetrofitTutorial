@@ -1,17 +1,14 @@
 package com.example.enaitzdam.retrofittutorial;
 
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.enaitzdam.retrofittutorial.interfaces.ApiMecAroundInterfaces;
 import com.example.enaitzdam.retrofittutorial.responses.Marcas;
-import com.example.enaitzdam.retrofittutorial.responses.ResponseAverias;
-import com.example.enaitzdam.retrofittutorial.responses.ResponseLogin;
 import com.example.enaitzdam.retrofittutorial.responses.ResponseMarcas;
 
 import java.net.HttpURLConnection;
@@ -25,53 +22,58 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
 
-public class ListadoMarcas extends AppCompatActivity {
 
 
-    private MarcasAdapter Ma;
-    private ListView Mylistview;
-//PRUEBA GIT
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_marcas);
-        Mylistview = findViewById(R.id.listviewaverias);
 
-    }
-
-    public void MostrarMarcas(View view) {
+    public class ListadoAverias extends AppCompatActivity {
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(getString(R.string.API_baseurl))
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        private MarcasAdapter Ma;
+        private ListView Mylistview;
 
-        ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
-        SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
-        final String restoredText = prefs.getString("KEY", "Not Found");
-        Call<ResponseMarcas> peticioMarcas = apiService.getMarcas(restoredText);
-        peticioMarcas.enqueue(new Callback<ResponseMarcas>() {
+        //PRUEBA GIT
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_listado_marcas);
+            Mylistview = findViewById(R.id.listviewaverias);
 
-            @Override
-            public void onResponse(Call<ResponseMarcas> call, Response<ResponseMarcas> response) {
-                if (response.code() == HttpURLConnection.HTTP_OK) {
+        }
 
-                    List<Marcas> llistatMarcas = response.body().getMarcas();
-                    Ma = new MarcasAdapter(ListadoMarcas.this, android.R.layout.simple_spinner_item, llistatMarcas);
-                    Mylistview.setAdapter(Ma);
-                    Toast.makeText(getApplicationContext(), "Percecto", Toast.LENGTH_SHORT).show();
+        public void MostrarMarcas(View view) {
+
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(getString(R.string.API_baseurl))
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
+            SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
+            final String restoredText = prefs.getString("KEY", "Not Found");
+            Call<ResponseMarcas> peticioAverias = apiService.getMarcas(restoredText);
+            peticioAverias.enqueue(new Callback<ResponseMarcas>() {
+
+                @Override
+                public void onResponse(Call<ResponseMarcas> call, Response<ResponseMarcas> response) {
+                    if (response.code() == HttpURLConnection.HTTP_OK) {
+
+                        List<Marcas> llistatMarcas = response.body().getMarcas();
+                        Ma = new MarcasAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, llistatMarcas);
+                        Mylistview.setAdapter(Ma);
+                        Toast.makeText(getApplicationContext(), "Percecto", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseMarcas> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Problema amb la connexió.", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<ResponseMarcas> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Problema amb la connexió.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
     }
 
-}
 
 
 

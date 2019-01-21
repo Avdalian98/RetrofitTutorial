@@ -7,15 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.example.enaitzdam.retrofittutorial.responses.Marcas;
+import com.example.enaitzdam.retrofittutorial.responses.Averias;
 import java.util.List;
 
-public class MarcasAdapter extends ArrayAdapter<Marcas> {
+public class AveriaAdapter extends ArrayAdapter<Averias> {
 
     private Context mContext;
-    private List<Marcas> mValues;
+    private List<Averias> mValues;
 
-    public MarcasAdapter(Context context, int textViewResourceId, List<Marcas> objects) {
+    public AveriaAdapter(Context context, int textViewResourceId, List<Averias> objects) {
         super(context, textViewResourceId, objects);
         this.mContext = context;
         this.mValues = objects;
@@ -27,7 +27,7 @@ public class MarcasAdapter extends ArrayAdapter<Marcas> {
     }
 
     @Override
-    public Marcas getItem(int position) {
+    public Averias getItem(int position) {
         return mValues.get(position);
     }
 
@@ -41,7 +41,7 @@ public class MarcasAdapter extends ArrayAdapter<Marcas> {
         TextView label = new TextView(mContext);
         label.setTextColor(Color.BLACK);
         label.setTextSize(18);
-        label.setText(" " + mValues.get(position).getMarca());
+        label.setText(" " + mValues.get(position).getTitulo());
         label.setHeight(50);
         label.setGravity(Gravity.LEFT | Gravity.CENTER);
         return label;
@@ -52,10 +52,11 @@ public class MarcasAdapter extends ArrayAdapter<Marcas> {
         TextView label = new TextView(mContext);
         label.setTextColor(Color.BLACK);
         label.setTextSize(18);
-        label.setText(" " + mValues.get(position).getMarca());
+        label.setText(" " + mValues.get(position).getTitulo());
         label.setHeight(70);
         label.setGravity(Gravity.LEFT | Gravity.CENTER);
         return label;
     }
 }
+
 

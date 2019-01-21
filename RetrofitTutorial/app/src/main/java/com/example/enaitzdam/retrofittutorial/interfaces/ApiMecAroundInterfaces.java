@@ -23,18 +23,25 @@ public interface ApiMecAroundInterfaces {
                                 @Field("password") String password);
 
     @GET("averia/lista")
-    Call<ResponseAverias> getAverias(@Query("X-API-KEY")String key);
+    Call<ResponseAverias> getAverias(@Query("X-API-KEY") String key);
 
     @GET("datamaster/data")
-    Call<ResponseMarcas> getMarcas(@Query("X-API-KEY")String key);
+    Call<ResponseMarcas> getMarcas(@Query("X-API-KEY") String key);
 
     @FormUrlEncoded
     @POST("auth/register")
-    Call <ResponseRegister> doRegister(@Field("nombre") String nombre,
-                                       @Field("password") String password,
-                                       @Field("email") String email);
+    Call<ResponseRegister> doRegister(@Field("nombre") String nombre,
+                                      @Field("password") String password,
+                                      @Field("email") String email);
 
-
+    @FormUrlEncoded
+    @POST("averia/nueva")
+    Call<ResponseAverias> doRegisterAveria(@Query("X-API-KEY") String key,
+                                           @Field("titulo") String titulo,
+                                           @Field("descripcion") String descripcion,
+                                           @Field("marca") String marca,
+                                           @Field("modelo") String modelo);
+    //X-API-KEY, titulo, descripcion, marca, modelo
 
 
 }
