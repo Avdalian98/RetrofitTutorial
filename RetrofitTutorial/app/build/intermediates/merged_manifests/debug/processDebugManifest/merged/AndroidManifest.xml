@@ -19,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.enaitzdam.retrofittutorial.MainMenu" />
         <activity android:name="com.example.enaitzdam.retrofittutorial.Register" />
         <activity android:name="com.example.enaitzdam.retrofittutorial.ListadoMarcas" />
         <activity android:name="com.example.enaitzdam.retrofittutorial.MainActivity" >

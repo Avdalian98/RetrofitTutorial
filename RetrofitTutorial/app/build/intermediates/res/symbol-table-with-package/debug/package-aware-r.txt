@@ -838,6 +838,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_listado_marcas
 layout activity_main
+layout activity_main_menu
 layout activity_register
 layout notification_action
 layout notification_action_tombstone
