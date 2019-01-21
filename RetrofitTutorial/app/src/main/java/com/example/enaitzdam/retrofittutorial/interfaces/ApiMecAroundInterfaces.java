@@ -7,6 +7,7 @@ import com.example.enaitzdam.retrofittutorial.responses.ResponseMarcas;
 import com.example.enaitzdam.retrofittutorial.responses.ResponseNuevaAveria;
 import com.example.enaitzdam.retrofittutorial.responses.ResponseLogin;
 import com.example.enaitzdam.retrofittutorial.responses.ResponseRegister;
+import com.example.enaitzdam.retrofittutorial.responses.ResponseTalleres;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -41,7 +42,10 @@ public interface ApiMecAroundInterfaces {
                                            @Field("descripcion") String descripcion,
                                            @Field("marca") String marca,
                                            @Field("modelo") String modelo);
-    //X-API-KEY, titulo, descripcion, marca, modelo
+    @FormUrlEncoded
+    @GET("datamaster/data")
+    Call<ResponseTalleres> getTalleres(@Query("X-API-KEY") String key);
+
 
 
 }

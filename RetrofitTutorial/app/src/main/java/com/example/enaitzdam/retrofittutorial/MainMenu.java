@@ -21,6 +21,8 @@ public void prueba2(){
     }
 
     public void ClickTallers(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListadoTalleres.class);
+        startActivity(intent);
     }
 
     public void ClickAveries(View view) {

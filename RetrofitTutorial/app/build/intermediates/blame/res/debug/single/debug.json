@@ -1404,6 +1404,10 @@
         "source": "C:\\Users\\davda\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\6ecce2b3469b97b9544f06f241218bde\\res\\drawable-xxhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\davda\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_listado_talleres.xml.flat",
+        "source": "C:\\Users\\davda\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\src\\main\\res\\layout\\activity_listado_talleres.xml"
+    },
+    {
         "merged": "C:\\Users\\davda\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_list_divider_material.xml.flat",
         "source": "C:\\Users\\davda\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\6ecce2b3469b97b9544f06f241218bde\\res\\drawable-v21\\abc_list_divider_material.xml"
     },

@@ -27,7 +27,7 @@ public class RegisterAverias extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_averias);
 //X-API-KEY, titulo, descripcion, marca, modelo
 
         editTexttTIULO = findViewById(R.id.titulo_et);
@@ -53,6 +53,7 @@ public class RegisterAverias extends AppCompatActivity {
             ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
             SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
             final String restoredText = prefs.getString("KEY", "Not Found");
+            Toast.makeText(getApplicationContext(), restoredText, Toast.LENGTH_SHORT).show();
             Call<ResponseAverias> peticioRegister = apiService.doRegisterAveria(restoredText,titulo,descripcion,marca,modelo);
 
 
@@ -69,7 +70,7 @@ public class RegisterAverias extends AppCompatActivity {
                         // String nomUser = response.body().getNombre();
 
                         Toast.makeText(getApplicationContext(), "Register OK  ", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainMenu.class);
                         startActivity(intent);
                     }
                 }

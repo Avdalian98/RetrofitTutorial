@@ -37,12 +37,12 @@ import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_listado_marcas);
-            Mylistview = findViewById(R.id.listviewaverias);
+            setContentView(R.layout.activity_listado_averias);
+            Mylistview = findViewById(R.id.lsitviewav);
 
         }
 
-        public void MostrarMarcas(View view) {
+        public void MostrarAverias(View view) {
 
 
             Retrofit retrofit = new Retrofit.Builder()
@@ -73,6 +73,7 @@ import static com.example.enaitzdam.retrofittutorial.MainActivity.PUBLIC_KEY;
                 }
             });
         }
+
 
     }
 

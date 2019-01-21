@@ -15,7 +15,7 @@
         android:text="RegisterAverias"
         android:gravity="center_horizontal"/>
 
-    //X-API-KEY, titulo, descripcion, marca, modelo
+
     <EditText
         android:id="@+id/titulo_et"
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="PushAveria"
-        android:onClick="RegistreAverias"/>
+        android:onClick="Register_R"/>
 
 
 </LinearLayout>
