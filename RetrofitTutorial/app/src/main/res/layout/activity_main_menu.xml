@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    tools:context=".MainMenu"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainMenu">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:hint="Main Menu"
         android:textSize="25dp"
-        android:layout_marginTop="25dp"
 
 
         />
@@ -22,21 +22,28 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Marques"
-        android:onClick="ClickMarques"/>
+        android:layout_marginTop="60dp"
+        android:onClick="ClickMarques"
+        android:text="Marques" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tallers"
-        android:onClick="ClickTallers"/>
+        android:layout_marginTop="60dp"
+        android:onClick="ClickTallers"
+        android:text="Tallers" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Averies"
-        android:onClick="ClickAveries"/>
+        android:layout_marginTop="60dp"
+        android:onClick="ClickAveries"
+        android:text="Averies" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Llistat d'averies"
-        android:onClick="ClickListaAveries"/>
+        android:layout_marginTop="60dp"
+        android:onClick="ClickListaAveries"
+        android:text="Llistat d'averies" />
 </LinearLayout>

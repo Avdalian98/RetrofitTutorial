@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         //Si volem obtenir parametres de la crida a l'API:
                         String nomUser = response.body().getNombre();
                         Toast.makeText(MainActivity.this, "Login OK "+nomUser, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), ListadoMarcas.class);
+                        Intent intent = new Intent(getApplicationContext(), MainMenu.class);
                         startActivity(intent);
                     }
                 }

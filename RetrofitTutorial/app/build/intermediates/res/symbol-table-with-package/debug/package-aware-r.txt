@@ -803,6 +803,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
 id textView4
 id textView_email_register
 id textView_nombre_register
