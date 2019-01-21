@@ -34,7 +34,9 @@ public class ListadoTalleres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_talleres);
         Mylistview = findViewById(R.id.listviewtalleres);
-
+        SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
+        final String restoredText = prefs.getString("KEY", "Not Found");
+        Toast.makeText(getApplicationContext(),restoredText , Toast.LENGTH_SHORT).show();
     }
 
     public void MostrarTalleres(View view) {
@@ -48,6 +50,7 @@ public class ListadoTalleres extends AppCompatActivity {
         ApiMecAroundInterfaces apiService = retrofit.create(ApiMecAroundInterfaces.class);
         SharedPreferences prefs = getSharedPreferences(PUBLIC_KEY, MODE_PRIVATE);
         final String restoredText = prefs.getString("KEY", "Not Found");
+        Toast.makeText(getApplicationContext(),restoredText , Toast.LENGTH_SHORT).show();
         Call<ResponseTalleres> peticioTalleres = apiService.getTalleres(restoredText);
         peticioTalleres.enqueue(new Callback<ResponseTalleres>() {
 

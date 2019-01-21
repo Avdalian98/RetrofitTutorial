@@ -25,6 +25,7 @@
         <activity android:name="com.example.enaitzdam.retrofittutorial.Register" />
         <activity android:name="com.example.enaitzdam.retrofittutorial.ListadoMarcas" />
         <activity android:name="com.example.enaitzdam.retrofittutorial.ListadoAverias" />
+        <activity android:name="com.example.enaitzdam.retrofittutorial.ListadoTalleres" />
         <activity android:name="com.example.enaitzdam.retrofittutorial.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,6 +16,7 @@
         <activity android:name=".Register" />
         <activity android:name=".ListadoMarcas" />
         <activity android:name=".ListadoAverias" />
+        <activity android:name=".ListadoTalleres" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Jan 21 18:19:59 CET 2019
+#Mon Jan 21 20:27:08 CET 2019
 0.baseType=DIRECTORY
 0.base=C\:\\Users\\davda\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex

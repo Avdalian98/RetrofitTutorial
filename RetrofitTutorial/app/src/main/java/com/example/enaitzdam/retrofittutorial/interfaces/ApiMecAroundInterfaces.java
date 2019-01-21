@@ -42,8 +42,8 @@ public interface ApiMecAroundInterfaces {
                                            @Field("descripcion") String descripcion,
                                            @Field("marca") String marca,
                                            @Field("modelo") String modelo);
-    @FormUrlEncoded
-    @GET("datamaster/data")
+
+    @GET("taller/lista")
     Call<ResponseTalleres> getTalleres(@Query("X-API-KEY") String key);
 
 
