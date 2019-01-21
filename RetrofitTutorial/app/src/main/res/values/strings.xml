@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RetrofitTutorial</string>
+    <string name="sign_in">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="API_baseurl">http://miguelcamposrivera.com/mecaround/api/v1/</string>
+    <string name="MostrarAverias">Mostrar Averías</string>
+</resources>

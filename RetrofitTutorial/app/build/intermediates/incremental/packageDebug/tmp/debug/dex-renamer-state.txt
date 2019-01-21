@@ -1,0 +1,4 @@
+#Mon Jan 21 15:38:12 CET 2019
+base.0=C\:\\Users\\davda\\OneDrive\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
