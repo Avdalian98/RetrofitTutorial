@@ -26,7 +26,7 @@ public class ListadoMarcas extends AppCompatActivity {
 
     private MarcasAdapter Ma;
     private ListView Mylistview;
-
+//PRUEBA GIT
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,9 @@ public class ListadoMarcas extends AppCompatActivity {
         Mylistview = findViewById(R.id.listviewaverias);
 
     }
+public  void prueba(){
 
+}
     public void MostrarAverias(View view) {
 
 

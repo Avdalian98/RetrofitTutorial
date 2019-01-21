@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\davda\\OneDrive\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-uz\\values-uz.xml",
+            "outputFile": "C:\\Users\\davda\\Documentos\\MEGAsync\\M8Android\\UF2\\RetrofitTutorial\\RetrofitTutorial\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-uz\\values-uz.xml",
             "map": [
                 {
                     "source": "C:\\Users\\davda\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\c84c8229d52c7e0782532342fcb95766\\res\\values-uz\\values-uz.xml",
